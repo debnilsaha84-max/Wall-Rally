@@ -42,7 +42,6 @@ def main():
     score=0
     score_text=canvas.create_text(50,20,text="Score:",color="yellow")
     while True:
-        
         keys=canvas.get_new_key_presses()
         canvas.move(ball,dx,dy)
 
@@ -67,7 +66,6 @@ def main():
         racket_width= canvas.get_object_width(racket)
 
         #racket movement
-
         if 'LEFT_ARROW' in keys:
             if racket_x>0:
                 canvas.move(racket,-10,0) #move racket to left
@@ -75,7 +73,8 @@ def main():
         if 'RIGHT_ARROW' in keys:
             if racket_x+racket_width<CANVAS_WIDTH:
                 canvas.move(racket,10,0) #move racket to right
-        
+
+        #game over screen
         if ball_bottom>=CANVAS_HEIGHT:
             game_over=canvas.create_text(110,190,text="GAME OVER",font="Arial",font_size=40,color="red")
             canvas.set_color(game_over,"red")
